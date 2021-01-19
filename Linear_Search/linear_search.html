@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Linear search visualization</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      </head>
+      <body>
+        <input id="takeinput">
+        <input id="req_num" placeholder="Enter number to search">
+        <button>submit</button>
+        <div id="contentofsort">
+         <p>The sorted format is:</p>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var a=$("#takeinput").val();
+                var c=$("#req_num").val();
+                c=Number(c);
+                var b,pos;
+                b=a.split(",");
+                b=b.map((i)=>{
+                    i=Number(i);
+                    return i;
+                })
+                console.log(b);
+                console.log(c);
+                pos=display_elements(b,c);
+                console.log(`position is ${pos}`);
+                var m=$("#contentofsort div div")
+                search(0,b,pos,m);
+              
+                function display_elements(b,c)
+                {
+                 var d="",e="",pos;
+                 for(i=0;i<b.length;i++)
+                 {
+                     if(b[i]==c)
+                     {
+                         pos=i
+                     }
+                 d+=`<div class="p-2 bg-info" style="width:50px;position:relative">${b[i]}</div>`;
+                 }  
+                 e=`<div class="d-flex p-3 bg-secondary text-white">${d}</div>`;
+                 $("#contentofsort").append(e);  
+                 return pos;             
+                }
+                function search(j,b,pos,m)
+                {
+                    
+                    if(j==pos)
+                    {
+                    $(m[j]).animate({top:'100px'},"slow");
+                    $(m[j]).css({"color":"red"});
+                      return
+                    }
+                    $(m[j]).animate({top:'100px'},"slow");
+                    $(m[j]).animate({top:'0px'},"slow");
+                    j+=1
+                    setTimeout(function(){
+                    search(j,b,pos,m);
+                    },2000);
+                    
+                }
+                
+            
+
+            });
+        });
+        </script>
+    </html>
