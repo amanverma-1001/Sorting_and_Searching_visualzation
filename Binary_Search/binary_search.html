@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Binary search visualization</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      </head>
+      <body>
+          <h3>Enter in sorted form(as in binary search input is in sorted form)</h3>
+        <input id="takeinput">
+        <input id="req_num" placeholder="Enter number to search">
+        <button>submit</button>
+        <div id="contentofsort">
+         <p>The sorted format is:</p>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var p=x="";
+                var a=$("#takeinput").val();
+                var c=$("#req_num").val();
+                c=Number(c);
+                var b,pos;
+                b=a.split(",");
+                b=b.map((i)=>{
+                    
+                    i=Number(i);
+                    x+=`<div class="p-2 bg-info" style="width:50px;position:relative">${i}</div>`;
+                    return i;
+                })
+                p=`<div class="d-flex p-3 bg-secondary text-white">${x}</div>`;
+                 $("#contentofsort").append(p);    
+                console.log(b);
+                console.log(c);
+                setTimeout(function(){
+                binarysearch(0,b,b.length-1,c);
+                },2000);
+
+                function binarysearch(lb,b,ub,c)
+                {
+                    var mb=0;
+                 mb=(lb+ub)/2;
+                 mb=Math.floor(mb);
+                 console.log(`The mb is ${mb}`);
+                   if(b[mb]==c){
+                    displayelements(mb,b,mb,c);
+                       console.log(`number found in position ${mb}`);
+                      
+                      return
+                   }
+                   else if(b[mb]<c)
+                    {
+                        lb=mb+1;
+                    }
+                    else{
+                        ub=mb-1;
+                    }
+                    displayelements(lb,b,ub,c);
+                 setTimeout(function(){
+                  binarysearch(lb,b,ub,c);
+                 },2000);
+                }
+                function displayelements(lb,b,ub,c)
+                {
+                 var d="",e="",i;
+                 d+=`<h4>The lower bound is ${lb} and upper bound is ${ub}</h4><br>`;
+                 for(i=lb;i<=ub;i++) 
+                 {
+                    d+=`<div class="p-2 bg-info" style="width:50px;position:relative">${b[i]}</div>`;
+                 }
+                 e=`<div class="d-flex p-3 bg-secondary text-white">${d}</div>`;
+                 $("#contentofsort").append(e);    
+                }
+
+            });
+        });
+        </script>
+        </html>
