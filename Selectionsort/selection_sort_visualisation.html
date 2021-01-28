@@ -7,30 +7,87 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       </head>
-      <style>
-          .flex-container {
-    display: flex;
-    align-items: stretch;
-    background-color: #f1f1f1;
-  }
-  
-  .flex-container>div {
-      position: relative;
-    background-color: DodgerBlue;
-    color: white;
-    width: 100px;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-  }
-      </style>
+     <style>
+         body{
+             background-image: url("background-sort.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;
+         }
+     </style>
     <body>
-        <input id="takeinput">
-        <button>submit</button>
-        <div id="contentofsort">
-         <p>The sorted format is:</p>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+
+            <h3 class="navbar-brand">Selection Sorting</h3>
+          </nav>
+          <div class="row">
+            <div class="col-sm-6">
+                <center>
+                <div class="card bg-secondary text-white w-50">
+                    <div class="card-body"><h4>Theory</h4></div>
+                  </div> </center>
+        <p>The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array.
+
+            1) The subarray which is already sorted.
+            2) Remaining subarray which is unsorted.
+            
+            In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.
+            
+            Following example explains the above steps: </p>
+
+<div class="container w-50 bg-light">
+    <p>            
+arr[] = 64 25 12 22 11
+<br>
+// Find the minimum element in arr[0...4]
+<br>
+// and place it at beginning
+<br>
+11 25 12 22 64
+<br>
+// Find the minimum element in arr[1...4]
+<br>
+// and place it at beginning of arr[1...4]
+<br>
+11 12 25 22 64
+<br>
+// Find the minimum element in arr[2...4]
+<br>
+// and place it at beginning of arr[2...4]
+<br>
+11 12 22 25 64
+<br>
+// Find the minimum element in arr[3...4]
+<br>
+// and place it at beginning of arr[3...4]
+<br>
+11 12 22 25 64 
+    </p>
+</div>
+</div>
+<div class="col-sm-6">
+<center>
+<div class="card bg-info text-white w-50">
+    <div class="card-body"><h4>Visualization</h4></div>
+  </div>
+  <br>
+       <h5>Enter numbers to sort seperated by commas</h5>
+        <input id="takeinput" class="my-3 w-25">
+        <button class="btn btn-primary">submit</button>
+    </center>
+    <center>
+    <div class="container mt-3">
+        <div class="d-inline-flex p-3 bg-secondary text-white">  
+          
+          <div class="p-2 bg-warning">Elements</div>
+          <div class="p-2 bg-primary">i position</div>
+          <div class="p-2 bg-success">minimum element</div>
         </div>
+      </div>
+    </center>
+        <div class="container my-3 w-25" id="contentofsort">
+        </div>
+    </div>
+    </div>
     </body>
     <script src="selection_sort.js"></script>
 </html>
