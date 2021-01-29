@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var a,n,x,i,z="";
     $("button").click(function(){
+        $("#contentofsort").empty();
     n=$("#takeinput").val();
     a=n.split(",");
     
@@ -39,7 +40,7 @@ $(document).ready(function(){
 
  setTimeout(function(){
  insertionsort(i+1,x);  
- },6000);    
+ },2000);    
 }
 
 
@@ -53,15 +54,15 @@ if(i!=j)
 {
  for(k=0;k<t.length;k++)
  {
-    if(k>=j && k<=i)
+    if(k<=i)
     {
-     d+=`<div class="p-2 bg-info" style="width:50px;position:relative">${t[k]}</div><br>`;
+     d+=`<div class="p-2 bg-info" style="width:50px;position:relative">${t[k]}</div>`;
     }
     else{
-        d+=`<div class="p-2 bg-warning" style="width:50px;position:relative">${t[k]}</div><br>`;
+        d+=`<div class="p-2 bg-warning" style="width:50px;position:relative">${t[k]}</div>`;
     }
  }
- e=`<div class="d-flex p-3 bg-secondary text-white">${d}</div>`;
+ e=`<div class="d-inline-flex p-3 bg-secondary text-white mb-3">${d}</div>`;
  $("#contentofsort").append(e);
  var m=$("#contentofsort div:last-child div");
  for(k=0;k<t.length;k++)
@@ -74,7 +75,7 @@ if(i!=j)
        if(k==i)
         {
             var v=$(m[k]);
-            v.animate({ top:`100px` },"slow");
+            v.animate({ top:`80px` },"slow");
             v.animate({ left:`-${h}px`},"slow");
             v.animate({ top:`0px`},"slow");
 
