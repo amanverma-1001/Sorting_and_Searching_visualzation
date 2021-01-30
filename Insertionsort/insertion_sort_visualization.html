@@ -7,12 +7,95 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       </head>
+      <style>
+        body{
+            background-image: url("background-sort.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
       <body>
-        <input id="takeinput">
-        <button>submit</button>
-        <div id="contentofsort">
-         <p>The sorted format is:</p>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+
+            <h3 class="navbar-brand">Insertion Sorting</h3>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item" style="float:right">
+                  <a class="nav-link" href="../Homepage/index.html">Home</a>
+                </li>
+              </ul>
+          </nav>
+          <div class="row">
+            <div class="col-sm-6">
+                <center>
+                <div class="card bg-secondary text-white w-50">
+                    <div class="card-body"><h4>Theory</h4></div>
+                  </div> </center>
+                    <p>Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands.
+                   The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed
+                    at the correct position in the sorted part.
+                    </p>
+
+              <h4>  Algorithm </h4>
+              <p>
+                To sort an array of size n in ascending order:
+                <br>
+                1: Iterate from arr[1] to arr[n] over the array.
+                <br>
+                2: Compare the current element (key) to its predecessor.
+                <br>
+                3: If the key element is smaller than its predecessor, compare it to the elements before.
+                 Move the greater elements one position up to make space for the swapped element.</p>
+
+                <h4> Example:</h4>
+                <p>
+                    12, 11, 13, 5, 6
+                    <br>
+                    Let us loop for i = 1 (second element of the array) to 4 (last element of the array)
+                    <br>
+                    i = 1. Since 11 is smaller than 12, move 12 and insert 11 before 12
+                    <br>
+                    11, 12, 13, 5, 6
+                    <br>
+                    i = 2. 13 will remain at its position as all elements in A[0..I-1] are smaller than 13
+                    <br>
+                    11, 12, 13, 5, 6
+                    <br>
+                    i = 3. 5 will move to the beginning and all other elements from 11 to 13 will move one position ahead of their current position.
+                    <br>
+                    5, 11, 12, 13, 6
+                    <br>
+                    i = 4. 6 will move to position after 5, and elements from 11 to 13 will move one position ahead of their current position.
+                    <br>
+                    5, 6, 11, 12, 13</p>
+                
+            </div>
+         <div class="col-sm-6">
+            <center>
+                <div class="card bg-info text-white w-50">
+                    <div class="card-body"><h4>Visualization</h4></div>
+                  </div>
+                  <br>
+                       <h5>Enter numbers to sort seperated by commas</h5>
+                        <input id="takeinput" class="my-3 w-25">
+                        <button class="btn btn-primary">submit</button>
+                    </center>
+                    <center>
+                        <div class="container mt-3">
+                            <div class="d-inline-flex p-3 bg-secondary text-white">  
+                              
+                             
+                              <div class="p-2 bg-primary">Sorted array</div>
+                              <div class="p-2 bg-warning">Unsorted array</div>
+                            
+                            </div>
+                          </div>
+                        </center>
+                        
+        <div class="container my-3 ml-3 w-25" id="contentofsort">
+
         </div>
+    </div>
+  </div>
     </body>
     <script src="insertion_sort.js">
         </script>

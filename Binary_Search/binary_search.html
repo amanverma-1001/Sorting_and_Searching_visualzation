@@ -7,31 +7,66 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       </head>
+      <style>
+        body{
+            background-image: url("background-sort.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
       <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+
+            <h3 class="navbar-brand">Binary search</h3>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item" style="float:right">
+                  <a class="nav-link" href="../Homepage/index.html">Home</a>
+                </li>
+              </ul>
+          </nav>
+          <div class="row">
+            <div class="col-sm-6">
+                <center>
+                <div class="card bg-secondary text-white w-50">
+                    <div class="card-body"><h4>Theory</h4></div>
+                  </div> </center>
+                <h5>Binary Search: Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole array.
+                     If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half.
+                     Otherwise narrow it to the upper half. Repeatedly check until the value is found or the interval is empty</h5>
+
+            </div>
+            <div class="col-sm-6">
+                <center>
+                    <div class="card bg-info text-white w-50">
+                        <div class="card-body"><h4>Visualization</h4></div>
+                      </div>
+                      <br>
           <h3>Enter in sorted form(as in binary search input is in sorted form)</h3>
         <input id="takeinput">
         <input id="req_num" placeholder="Enter number to search">
-        <button>submit</button>
+        <button class="btn btn-primary">submit</button>
         <div id="contentofsort">
-         <p>The sorted format is:</p>
         </div>
+     </div>
+  </div>
     </body>
     <script>
         $(document).ready(function(){
             $("button").click(function(){
-                var p=x="";
+                var p=x="",k=0;
                 var a=$("#takeinput").val();
                 var c=$("#req_num").val();
                 c=Number(c);
                 var b,pos;
                 b=a.split(",");
+               l="<h4>The elements entered are</h4>";
                 b=b.map((i)=>{
                     
                     i=Number(i);
                     x+=`<div class="p-2 bg-info" style="width:50px;position:relative">${i}</div>`;
                     return i;
                 })
-                p=`<div class="d-flex p-3 bg-secondary text-white">${x}</div>`;
+                p=`${l}<<div class="d-inline-flex p-3 bg-secondary text-white">${x}</div><br><br>`;
                  $("#contentofsort").append(p);    
                 console.log(b);
                 console.log(c);
@@ -47,7 +82,7 @@
                  console.log(`The mb is ${mb}`);
                    if(b[mb]==c){
                     displayelements(mb,b,mb,c);
-                       console.log(`number found in position ${mb}`);
+                       $("#contentofsort").append(`<h3 style="color:red">number found in position ${mb} </h4>`);
                       
                       return
                    }
@@ -66,14 +101,15 @@
                 function displayelements(lb,b,ub,c)
                 {
                  var d="",e="",i;
-                 d+=`<h4>The lower bound is ${lb} and upper bound is ${ub}</h4><br>`;
+                 k++;
                  for(i=lb;i<=ub;i++) 
                  {
                     d+=`<div class="p-2 bg-info" style="width:50px;position:relative">${b[i]}</div>`;
                  }
-                 e=`<div class="d-flex p-3 bg-secondary text-white">${d}</div>`;
+                 e=`<h4>Pass ${k}:The lower bound is ${lb} and upper bound is ${ub}</h4><div class="d-inline-flex p-3 bg-secondary text-white">${d}</div>`;
                  $("#contentofsort").append(e);    
                 }
+
 
             });
         });

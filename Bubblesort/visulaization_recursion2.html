@@ -8,14 +8,95 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
        
       </head>
+      <style>
+          body{
+             background-image: url("background-sort.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;
+         }
+      </style>
      <body>
-        <input type="text" id="uni">
-        <button id="type1">submit</button>
-        <div id="display">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
 
-        </div>
+            <h3 class="navbar-brand">Bubble Sorting</h3>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item" style="float:right">
+                  <a class="nav-link" href="../Homepage/index.html">Home</a>
+                </li>
+              </ul>
+          </nav>
+          <div class="row">
+            <div class="col-sm-6">
+                <center>
+                 <div class="card bg-secondary text-white w-50">
+                    <div class="card-body"><h4>Theory</h4></div>
+                  </div> </center>
+                  <p>  Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.</p>
+                <div class="container w-75 bg-light">
+                    <p>     
+                  Example:
+                  <br>
+                  First Pass:
+                  ( 5 1 4 2 8 ) –> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
+                  <br>
+                  ( 1 5 4 2 8 ) –>  ( 1 4 5 2 8 ), Swap since 5 > 4
+                  <br>
+                  ( 1 4 5 2 8 ) –>  ( 1 4 2 5 8 ), Swap since 5 > 2
+                  <br>
+                  ( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+                  <br>
+                  
+                  Second Pass:
+                  <br>
+                  ( 1 4 2 5 8 ) –> ( 1 4 2 5 8 )
+                  <br>
+                  ( 1 4 2 5 8 ) –> ( 1 2 4 5 8 ), Swap since 4 > 2
+                  <br>
+                  ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+                  <br>
+                  ( 1 2 4 5 8 ) –>  ( 1 2 4 5 8 )
+                  <br>
+                  Now, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.
+                  <br>
+                  Third Pass:
+                  <br>
+                  ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+                  <br>
+                  ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+                  <br>
+                  ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+                  <br>
+                  ( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+                </p>
+                </div>
+            </div>
+      <div class="col-sm-6">
+        <center>
+            <div class="card bg-info text-white w-50">
+                <div class="card-body"><h4>Visualization</h4></div>
+              </div>
+              <br>
+                   <h5>Enter numbers to sort seperated by commas</h5>
+                    <input id="uni" class="my-3 w-25">
+                    <button class="btn btn-primary" id="type1">submit</button>
+                </center>
+                <center>
+                    <div class="container mt-3">
+                        <div class="d-inline-flex p-3 bg-secondary text-white">  
+                          
+                          <div class="p-2 bg-warning">Elements</div>
+                          <div class="p-2 bg-primary">Swap elements</div>
+                        </div>
+                      </div>
+                    </center>
+    
+           <div class="container my-3 w-25" id="display">
 
-         
+
+          </div>
+
+       </div>
+     </div>         
         
         <script src="bubble_sort_updated.js"></script>
     </body>

@@ -15,16 +15,22 @@ $(document).ready(function(){
            
        
         function bubblesort(a,i){
-            let t=0;
+            let t=0,flag=0;
             if(i==a.length)
             {
                 return;
             }
             else{
+               
               for(j=0;j<a.length-i;j++)
               {
+                  
                   if(a[j]>a[j+1])
                   {
+                      if(flag==0){
+                    $("#display").append(`<h3>Pass ${i+1}</h3>`);
+                      }
+                    flag=1;
                       beforeappend(a,a[j],a[j+1]);
                       t=a[j];
                       a[j]=a[j+1];
@@ -59,21 +65,22 @@ $(document).ready(function(){
  
              }
          }
-         e=`<div class="d-flex p-3 bg-secondary text-white">${x}</div>`;
+         e=`<div class="d-inline-flex p-3 bg-secondary text-white">${x}</div>`;
          $("#display").append(e);
          var m=$("#display div:last-child div");
          for(k=0;k<arr.length;k++)
          {
              if(arr[k]==c)
              {
-                $(m[k]).animate({
-               left:'50px' });
+                $(m[k]).animate({top:`80px`},"slow");
+                $(m[k]).animate({left:`50px`},"slow");
+                $(m[k]).animate({top:`0px`},"slow");
                 }
                if(arr[k]==d)
                 {
-                   $(m[k]).animate({
-                       left:'-50px'
-                   });
+                    $(m[k]).animate({top:`80px`},"slow");
+                   $(m[k]).animate({left:`-50px`},"slow");
+                   $(m[k]).animate({top:`0px`},"slow");
         
                 } 
                 }

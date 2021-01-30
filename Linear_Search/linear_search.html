@@ -7,13 +7,69 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       </head>
+      <style>
+        body{
+            background-image: url("background-sort.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
       <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+
+            <h3 class="navbar-brand">Linear search</h3>
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item" style="float:right">
+                <a class="nav-link" href="../Homepage/index.html">Home</a>
+              </li>
+            </ul>
+
+          </nav>
+          <div class="row">
+            <div class="col-sm-6">
+                <center>
+                <div class="card bg-secondary text-white w-50">
+                    <div class="card-body"><h4>Theory</h4></div>
+                  </div> </center>
+                  <center>
+                      <p>  Linear search is the simplest search algorithm and often called sequential search. In this type of searching,
+                   we simply traverse the list completely and match each element of the list with the item whose location is to be found.
+                    If the match found then location of the item is returned otherwise the algorithm return NULL.</p>
+
+                                   <h4>Examples :</h4>
+
+                    
+                   <p> Input : arr[] = {10, 20, 80, 30, 60, 50,<br> 
+                                         110, 100, 130, 170}
+                                         <br>
+                              x = 110;<br>
+                    Output : 6<br>
+                    Element x is present at index 6<br>
+                    
+                    Input : arr[] = {10, 20, 80, 30, 60, 50, <br>
+                                         110, 100, 130, 170}<br>
+                            <br>
+                               x = 175;
+                        <br>
+                    Output : -1
+                    <br>
+                    Element x is not present in arr[].</p>
+            </div></center>
+
+            <div class="col-sm-6">
+                <center>
+                    <div class="card bg-info text-white w-50">
+                        <div class="card-body"><h4>Visualization</h4></div>
+                      </div>
+                      <br>
         <input id="takeinput">
         <input id="req_num" placeholder="Enter number to search">
-        <button>submit</button>
+        <button class="btn btn-primary">submit</button>
+       </center>
         <div id="contentofsort">
-         <p>The sorted format is:</p>
         </div>
+    </div>
+</div>
     </body>
     <script>
         $(document).ready(function(){
@@ -45,7 +101,7 @@
                      }
                  d+=`<div class="p-2 bg-info" style="width:50px;position:relative">${b[i]}</div>`;
                  }  
-                 e=`<div class="d-flex p-3 bg-secondary text-white">${d}</div>`;
+                 e=`<center><div class="d-inline-flex p-3 bg-secondary text-white mt-4">${d}</div>`;
                  $("#contentofsort").append(e);  
                  return pos;             
                 }
@@ -54,11 +110,13 @@
                     
                     if(j==pos)
                     {
-                    $(m[j]).animate({top:'100px'},"slow");
+                    $(m[j]).animate({top:'80px'},"slow");
                     $(m[j]).css({"color":"red"});
+                    $("#contentofsort").append(`<h4 class="mt-5">The element is found in position ${pos}</h4> </center>`);
+            
                       return
                     }
-                    $(m[j]).animate({top:'100px'},"slow");
+                    $(m[j]).animate({top:'80px'},"slow");
                     $(m[j]).animate({top:'0px'},"slow");
                     j+=1
                     setTimeout(function(){
@@ -67,7 +125,6 @@
                     
                 }
                 
-            
 
             });
         });
